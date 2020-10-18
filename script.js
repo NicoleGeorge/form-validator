@@ -21,6 +21,11 @@ function showSuccess(input) {
   // small.innerText = message;
 }
 
+// EMAIL VALID FUNCTION
+function isValidEmail(email) {
+  const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  return re.test(String(email).toLowerCase());
+}
 // EVENT LISTENERS
 
 form.addEventListener('submit', function (e) {
@@ -35,6 +40,8 @@ form.addEventListener('submit', function (e) {
 
   if (email.value === '') {
     showError(email, 'Username is required');
+  } else if (!isValidEmail(email.value)) {
+    showError(email, 'Email is not valid');
   } else {
     showSuccess(email);
   }
