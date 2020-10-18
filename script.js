@@ -43,6 +43,14 @@ function checkRequired(inputArray) {
   });
 }
 
+// CHECK PASSWORDS MATCH
+
+function checkPasswordsMatch(input1, input2) {
+  if (input1.value !== input2.value) {
+    showError(input2, 'Passwords do not match');
+  }
+}
+
 // GET FIELD NAME FUNCTION
 function getFieldName(input) {
   return input.id.charAt(0).toUpperCase() + input.id.slice(1);
@@ -75,4 +83,5 @@ form.addEventListener('submit', function (e) {
   checkLength(username, 3, 15);
   checkLength(password, 6, 25);
   checkEmail(email);
+  checkPasswordsMatch(password, password2);
 });
