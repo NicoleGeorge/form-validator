@@ -32,7 +32,7 @@ function checkRequired(inputArray) {
   inputArray.forEach(function (input) {
     // console.log(input.value); working
     if (input.value.trim() === '') {
-      showError(input, 'Is required');
+      showError(input, `${input.id} is required`);
     } else {
       showSuccess(input);
     }
