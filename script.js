@@ -32,11 +32,16 @@ function checkRequired(inputArray) {
   inputArray.forEach(function (input) {
     // console.log(input.value); working
     if (input.value.trim() === '') {
-      showError(input, `${input.id} is required`);
+      showError(input, `${getFieldName(input)} is required`);
     } else {
       showSuccess(input);
     }
   });
+}
+
+// GET FIELD NAME FUNCTION
+function getFieldName(input) {
+  return input.id.charAt(0).toUpperCase() + input.id.slice(1);
 }
 
 // EVENT LISTENERS
