@@ -13,6 +13,14 @@ function showError(input, message) {
   small.innerText = message;
 }
 
+// INPUT SUCCESS MESSAGE
+function showSuccess(input) {
+  const formControl = input.parentElement;
+  formControl.className = 'form-control success';
+  // const small = formControl.querySelector('small');
+  // small.innerText = message;
+}
+
 // EVENT LISTENERS
 
 form.addEventListener('submit', function (e) {
@@ -23,5 +31,23 @@ form.addEventListener('submit', function (e) {
     showError(username, 'Username is required');
   } else {
     showSuccess(username);
+  }
+
+  if (email.value === '') {
+    showError(email, 'Username is required');
+  } else {
+    showSuccess(email);
+  }
+
+  if (password.value === '') {
+    showError(password, 'Username is required');
+  } else {
+    showSuccess(password);
+  }
+
+  if (password2.value === '') {
+    showError(password2, 'Username is required');
+  } else {
+    showSuccess(password2);
   }
 });
